@@ -16,7 +16,6 @@ export async function fetchImg(searchTerm, currentPage) {
         page: currentPage,
       },
     });
-    console.log('response -->', response);
     return response;
   } catch (error) {
     console.log(error);

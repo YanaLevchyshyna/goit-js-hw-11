@@ -25,6 +25,7 @@ refs.loaderBtn.addEventListener('click', loadMoreImages);
 
 function onSubmit(e) {
   e.preventDefault();
+  currentPage = 1;
   searchTerm = e.target.searchQuery.value.trim();
 
   if (!searchTerm) {
