@@ -1,0 +1,66 @@
+.header {
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  background-color: #404bbf;
+}
+
+.searh-btn {
+  margin-left: 15px;
+  min-width: 70px;
+  height: 22px;
+
+  color: #404bbf;
+  background-color: #ffffff;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  border: none;
+}
+
+.searh-btn:is(:hover, :focus) {
+  background-color: #f4f4fd;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-section {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 15px;
+  text-align: center;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.load-more {
+  display: none;
+  margin: 0 auto;
+  border-radius: 4px;
+  margin-top: 15px;
+  min-width: 200px;
+  height: 45px;
+
+  color: #404bbf;
+  background-color: #f4f4fd;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  border: none;
+}
