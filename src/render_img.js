@@ -1,3 +1,7 @@
+const refs = {
+  gallery: document.querySelector('.gallery'),
+};
+
 export function renderGallery(hits) {
   return hits
     .map(
@@ -29,4 +33,5 @@ export function renderGallery(hits) {
       }
     )
     .join('');
+  // refs.gallery.insertAdjacentHTML('beforeend', markup);
 }

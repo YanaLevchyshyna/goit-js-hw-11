@@ -29,24 +29,28 @@ function onSubmit(e) {
 
   if (!searchTerm) {
     clearSearch();
-    return Notify.failure(`Enter a search query, please.`);
+    Notiflix.Notify.failure(
+      'Sorry, there are no images matching your search query. Please try again.'
+    );
+    return;
   }
+
   fetchImg(searchTerm, currentPage).then(data => {
     if (!data.data.hits.length) {
       clearSearch();
-      return Notify.failure(
+      Notify.failure(
         `Sorry, there are no images matching your search query. Please try again.`
       );
+      return;
     }
     Notify.success(`Hooray! We found ${data.data.totalHits} images.`);
     refs.gallery.innerHTML = renderGallery(data.data.hits);
+
     galleryLightbox.refresh();
-    if (currentPage > data.data.totalHits / 40) {
+
+    if (data.data.totalHits <= currentPage * 40) {
       refs.loaderBtn.style.display = 'none';
-      refs.gallery.insertAdjacentHTML(
-        'beforeend',
-        `<p class='result-text'>We're sorry, but you've reached the end of search results.</p>`
-      );
+      Notify.info("We're sorry, but you've reached the end of search results");
     } else {
       refs.loaderBtn.style.display = 'block';
     }
@@ -58,6 +62,7 @@ function loadMoreImages() {
   fetchImg(searchTerm, currentPage).then(data => {
     refs.gallery.insertAdjacentHTML('beforeend', renderGallery(data.data.hits));
     galleryLightbox.refresh();
+
     const { height: cardHeight } = document
       .querySelector('.gallery')
       .firstElementChild.getBoundingClientRect();
@@ -65,12 +70,10 @@ function loadMoreImages() {
       top: cardHeight * 2,
       behavior: 'smooth',
     });
-    if (currentPage > data.data.totalHits / 40) {
+
+    if (data.data.totalHits <= currentPage * 40) {
       refs.loaderBtn.style.display = 'none';
-      refs.gallery.insertAdjacentHTML(
-        'beforeend',
-        `<p class='result-text'>We're sorry, but you've reached the end of search results.</p>`
-      );
+      Notify.info("We're sorry, but you've reached the end of search results");
     }
   });
 }
