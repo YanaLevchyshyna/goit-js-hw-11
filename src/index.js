@@ -3,7 +3,6 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { fetchImg } from './fetch_img';
 import { renderGallery } from './render_img';
-fetchImg();
 
 let currentPage;
 
@@ -26,7 +25,7 @@ refs.loaderBtn.addEventListener('click', loadMoreImages);
 function onSubmit(e) {
   e.preventDefault();
   currentPage = 1;
-  searchTerm = e.target.searchQuery.value.trim();
+  searchTerm = e.currentTarget.searchQuery.value.trim();
 
   if (!searchTerm) {
     clearSearch();
@@ -43,6 +42,7 @@ function onSubmit(e) {
     refs.gallery.innerHTML = renderGallery(data.data.hits);
     galleryLightbox.refresh();
     if (currentPage > data.data.totalHits / 40) {
+      refs.loaderBtn.style.display = 'none';
       refs.gallery.insertAdjacentHTML(
         'beforeend',
         `<p class='result-text'>We're sorry, but you've reached the end of search results.</p>`
@@ -58,7 +58,6 @@ function loadMoreImages() {
   fetchImg(searchTerm, currentPage).then(data => {
     refs.gallery.insertAdjacentHTML('beforeend', renderGallery(data.data.hits));
     galleryLightbox.refresh();
-
     const { height: cardHeight } = document
       .querySelector('.gallery')
       .firstElementChild.getBoundingClientRect();
@@ -67,7 +66,7 @@ function loadMoreImages() {
       behavior: 'smooth',
     });
     if (currentPage > data.data.totalHits / 40) {
-      refs.loaderBtnstyle.display = 'none';
+      refs.loaderBtn.style.display = 'none';
       refs.gallery.insertAdjacentHTML(
         'beforeend',
         `<p class='result-text'>We're sorry, but you've reached the end of search results.</p>`
