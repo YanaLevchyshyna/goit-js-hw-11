@@ -9,19 +9,23 @@
   </head>
   <body>
     <header class="header">
-      <form class="search-form" id="search-form">
-        <input
-          type="text"
-          name="searchQuery"
-          autocomplete="off"
-          placeholder="Search images..."
-        />
-        <button type="submit" class="searh-btn">Search</button>
-      </form>
+      <div class="container">
+        <form class="search-form" id="search-form">
+          <input
+            type="text"
+            name="searchQuery"
+            autocomplete="off"
+            placeholder="Search images..."
+          />
+          <button type="submit" class="searh-btn">Search</button>
+        </form>
+      </div>
     </header>
     <section class="gallery-section">
-      <div class="gallery"></div>
-      <button type="button" class="load-more">Load more</button>
+      <div class="container">
+        <ul class="gallery"></ul>
+        <button type="button" class="load-more">Load more</button>
+      </div>
     </section>
     <script type="module" src="./index.js"></script>
   </body>
