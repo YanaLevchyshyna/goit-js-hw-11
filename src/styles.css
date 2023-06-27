@@ -1,3 +1,11 @@
+input {
+  border-radius: 12px;
+  line-height: 2.15;
+  width: 325px;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
 a {
   text-decoration: none;
   font-style: inherit;
@@ -18,19 +26,20 @@ p {
 
 .searh-btn {
   margin-left: 15px;
-  min-width: 70px;
-  height: 22px;
+  min-width: 76px;
+  height: 34px;
 
   color: #404bbf;
   background-color: #ffffff;
 
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
   cursor: pointer;
   border: none;
+  border-radius: 12px;
 }
 
 .searh-btn:is(:hover, :focus) {
@@ -52,6 +61,12 @@ p {
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
+}
+
+.photo-card {
+  border-radius: 4px;
+  outline: 1px solid gray;
+  box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.5);
 }
 
 .info {

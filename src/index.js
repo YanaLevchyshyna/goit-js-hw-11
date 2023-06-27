@@ -29,7 +29,7 @@ function onSubmit(e) {
 
   if (!searchTerm) {
     clearSearch();
-    Notiflix.Notify.failure(
+    Notify.failure(
       'Sorry, there are no images matching your search query. Please try again.'
     );
     return;
