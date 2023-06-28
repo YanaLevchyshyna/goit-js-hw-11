@@ -15,7 +15,7 @@ export function renderGallery(hits) {
         downloads,
       }) => {
         return `<a href="${largeImageURL}" class="lightbox"> <div class="photo-card">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+ <div class="lightbox-cover-wrap"> <img src="${webformatURL}" alt="${tags}" loading="lazy" />
   <div class="info">
     <p class="info-item">
       <b>Likes</b>${likes}
@@ -29,7 +29,9 @@ export function renderGallery(hits) {
     <p class="info-item">
       <b>Downloads</b>${downloads}
     </p>
-  </div></div></a>`;
+  </div></div>
+  </div>
+  </a>`;
       }
     )
     .join('');
